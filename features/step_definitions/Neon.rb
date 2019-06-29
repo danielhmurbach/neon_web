@@ -7,9 +7,15 @@ Dado("que estou na pagina de perguntas") do
   Quando("localizo a pergunta de A Neon e so um cartao?") do
     page = Neon.new
     page.pergunta_neon.click
+    sleep 4
   end
   
   Entao("Vejo a {string} e a {string} como resposta para a pergunta") do |string, string2|
-        pending # Write code here that turns the phrase above into concrete actions
+    page.has_text?(string)
+    expect(page.has_text?(string)).to eq true
+    sleep 2
+    page.has_text?(string2)
+    expect(page.has_text?(string2)).to eq true
+    sleep 2
   end
   
