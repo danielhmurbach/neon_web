@@ -2,12 +2,13 @@
 Dado("que estou na pagina de perguntas") do
     page = Neon.new
     page.evaluate_script 'window.location.reload()'
+    page.acessar_perguntas.click
   end
   
   Quando("localizo a pergunta de A Neon e so um cartao?") do
     page = Neon.new
     page.pergunta_neon.click
-    sleep 4
+    sleep 2
   end
   
   Entao("Vejo a {string} e a {string} como resposta para a pergunta") do |string, string2|
